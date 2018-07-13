@@ -9,8 +9,8 @@ A repository to put interesting things about React
 ---
 
 1. yarn create react-app hello-world
-1.
-
+1. yarn add semantic-ui-react
+1. 
 ---
 
 
