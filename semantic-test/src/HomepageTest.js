@@ -16,22 +16,61 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
+class MenuExampleSecondaryPointing extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <div>
+        <Menu pointing secondary stackable color='red' inverted size='large'>
+          <Menu.Item>
+            <Image
+              size='mini'
+              src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hammer_and_sickle.svg/180px-Hammer_and_sickle.svg.png'
+              circular
+            />
+          </Menu.Item>
+
+          <Menu.Item
+            name='Marx'
+            active={activeItem === 'Marx'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='Engels'
+            active={activeItem === 'Engels'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='Gramsci'
+            active={activeItem === 'Gramsci'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='logout'
+              active={activeItem === 'logout'}
+              onClick={this.handleItemClick}
+            />
+          </Menu.Menu>
+        </Menu>
+
+        <Segment>
+          <Image src='https://cdn-images-1.medium.com/max/1910/1*7qVQLo7War7hX6klc2gStw.jpeg'
+          fluid />
+        </Segment>
+      </div>
+    )
+  }
+}
+
 const HomepageTest = () => (
 <div>
-  <Menu fixed='top'>
-    <Menu.Item>
-      ola1
-    </Menu.Item>
-    <Menu.Item>
-      ola2
-    </Menu.Item>
-    <Menu.Item>
-      ola3
-    </Menu.Item>
-  </Menu>
-  <Header as='h2' attached='top'>
-    Attached Header
-  </Header>
+  <MenuExampleSecondaryPointing />
   <Segment.Group vertical raised>
     <Segment.Group>
       <Segment>bla</Segment>
